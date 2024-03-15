@@ -14,12 +14,14 @@ namespace EmployeeApi.Controllers
         {
             _employeeService = employeeService;
         }
-        [HttpPost]
+        [HttpPost] 
+
         public async Task<IActionResult> GetEmployeeDetails(string OrderBy, string OrderDirection, int SkipRows, int TopRows)
         {
             try
             {
                 // Call your service method with the provided parameters
+                
                 var result = await _employeeService.GetEmployeedetails(OrderBy, OrderDirection, SkipRows, TopRows);
 
                 if (result != null)
