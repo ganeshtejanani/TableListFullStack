@@ -20,7 +20,7 @@ namespace EmployeeApi.Controllers
         {
             try
             {
-                // Call your service method with the provided parameters
+                // Call your service method with the provided parameter
                 
                 var result = await _employeeService.GetEmployeedetails(OrderBy, OrderDirection, SkipRows, TopRows);
 
