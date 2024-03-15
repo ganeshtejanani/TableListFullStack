@@ -1,0 +1,49 @@
+<div class="main-container">
+    <div class="main-header">
+        <app-header></app-header>
+    </div>
+    <div class="main-box">
+        <div class="main-sidenav">
+            <app-sidenav></app-sidenav>
+        </div>
+        <div class="main-table-container">
+            <table mat-table [dataSource]="dataSource | paginate: { id: 'pageChange',
+			itemsPerPage: 10,
+			currentPage: currentpage,
+			totalItems: 40 }" matSort (matSortChange)="announceSortChange($event)" class="mat-elevation-z8">
+
+                <ng-container matColumnDef="EmployeeId">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Emp Id </th>
+                  <td mat-cell *matCellDef="let element"> {{element.employeeId}} </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="FirstName">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> First Name </th>
+                  <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="LastName">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </th>
+                  <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="Email">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+                  <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="Address">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Address </th>
+                    <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+                  </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+              <div class="main-pagination">
+                <pagination-controls id="pageChange"
+                (pageChange)="pageChange($event)"
+                ></pagination-controls>
+            </div>
+        </div>
+    </div>
+</div>
